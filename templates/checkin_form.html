@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Check in — {{ event.name }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container checkin-card">
+    <h1>Check in to {{ event.name }}</h1>
+    <form method="POST" action="{{ url_for('checkin', event_id=event.id) }}" autocomplete="off">
+      <input name="name" placeholder="Name" required autocomplete="off">
+      <input name="mobile" placeholder="Mobile" required autocomplete="off">
+      <input name="email" placeholder="Email" autocomplete="off">
+      <input name="company" placeholder="Company" autocomplete="off">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

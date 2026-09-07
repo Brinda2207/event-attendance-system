@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ event.name }} — Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>{{ event.name }}</h1>
+    <p>{{ event.date }}</p>
+
+    <h2>Scan to check in</h2>
+    <div class="qr-box">
+      <img src="{{ url_for('static', filename='qrcodes/event_' ~ event.id ~ '.png') }}" alt="QR code for {{ event.name }}">
+    </div>
+
+    <h2>View participants</h2>
+    <div class="count-badge">Total Count: {{ total_count }}</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>Email</th>
+          <th>Company</th>
+          <th>Checked in at</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for p in participants %}
+        <tr>
+          <td>{{ p.name }}</td>
+          <td>{{ p.mobile }}</td>
+          <td>{{ p.email }}</td>
+          <td>{{ p.company }}</td>
+          <td>{{ p.checked_in_at }}</td>
+        </tr>
+      {% else %}
+        <tr><td colspan="5">No check-ins yet.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+    <p><a href="{{ url_for('admin_events') }}">← Back to events</a></p>
+  </div>
+</body>
+</html>

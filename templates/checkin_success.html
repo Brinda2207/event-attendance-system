@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checked in!</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container checkin-card">
+    <h1>You're checked in 🎉</h1>
+    <p>Thanks for checking in to <strong>{{ event.name }}</strong>. See you inside!</p>
+  </div>
+</body>
+</html>
