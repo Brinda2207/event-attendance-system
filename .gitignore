@@ -1,0 +1,6 @@
+attendance.db
+__pycache__/
+*.pyc
+static/qrcodes/*.png
+venv/
+.env
