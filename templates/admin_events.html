@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Events</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Events</h1>
+
+    <form method="POST">
+      <input name="name" placeholder="Event name" required>
+      <input name="date" type="date" required>
+      <button type="submit">Add Event</button>
+    </form>
+
+    <ul class="event-list">
+    {% for e in events %}
+      <li><a href="/event/{{ e.id }}">{{ e.name }} — {{ e.date }}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
